@@ -1,0 +1,19 @@
+left_senosr = 'L'
+right_sensor = 'R'
+
+def control (L, R, speed):
+    
+    P = 1
+    error = R - L
+    
+    return {
+        'engineTorque'  : 4000,
+        'brakingTorque' : 0,
+        'steeringAngle' : P * error
+        'log': [
+            { 'name': 'Speed','value':speed, 'min': 0, 'max': 200 },
+            { 'name': 'L','value':L, 'min': 0, 'max': 1 },
+            { 'name': 'R','value':R, 'min': 0, 'max': 1 }
+            ]
+            }
+            
